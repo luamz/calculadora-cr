@@ -1,14 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.uff.sti.calculadoraCR;
 
-/**
- *
- * @author Luam
- */
+import java.util.ArrayList;
+
+/* @author Luam */
+
 public class Aluno {
+    String matricula;
+    String codCurso;
+    ArrayList<Disciplina> historico =  new ArrayList();
+    int totalCargaHoraria;
+    
     
 }
