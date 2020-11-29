@@ -19,6 +19,8 @@ public class Disciplina {
                 this.cargaHoraria, this.anoSemestre);
     }
     
+    
+    // Getters and Setters
     public float getMedia(){
         return this.nota*cargaHoraria;
     }

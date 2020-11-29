@@ -5,12 +5,12 @@ import java.util.ArrayList;
 /* @author Luam */
 
 public class Aluno implements possuiCR{
-    int matricula;
-    int codCurso;
-    ArrayList<Disciplina> historico =  new ArrayList();
-    int totalCargaHoraria;
-    float mediaHora;
-    float cr;
+    protected int matricula;
+    protected int codCurso;
+    protected ArrayList<Disciplina> historico =  new ArrayList();
+    protected int totalCargaHoraria;
+    protected float mediaHora;
+    protected float cr;
 
     public Aluno(int matricula, int codCurso) {
         this.matricula = matricula;
@@ -20,6 +20,7 @@ public class Aluno implements possuiCR{
         this.cr = 0;
     }
     
+    // Implementação dos métodos da interface
     @Override
     public void calcularCR(){
         for (Disciplina disciplina : historico){
@@ -34,16 +35,7 @@ public class Aluno implements possuiCR{
         System.out.printf("%d - %.0f \n", this.matricula, this.cr);
     }
     
-    @Override
-    public void imprimirAluno(){
-        System.out.printf("Aluno com matricula:%s Curso: %s \n", this.matricula, this.codCurso);
-        System.out.printf("CR: %.2f Disciplinas: \n",this.cr);
-        for(Disciplina disciplina: historico){
-            disciplina.imprimirDisciplina();
-        }
-        System.out.println("\n");
-    }
-
+    // Getters and Setters
     public int getMatricula() {
         return matricula;
     }
