@@ -14,12 +14,6 @@ public class Disciplina {
         this.anoSemestre = anoSemestre;
     }
     
-    public void imprimirDisciplina(){
-        System.out.printf("Codigo: %s Nota: %.2f Carga Horaria: %d Semestre: %d\n", this.codDisciplina, this.nota,
-                this.cargaHoraria, this.anoSemestre);
-    }
-    
-    
     // Getters and Setters
     public float getMedia(){
         return this.nota*cargaHoraria;
