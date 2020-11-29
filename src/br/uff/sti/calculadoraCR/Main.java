@@ -37,7 +37,6 @@ public class Main {
         System.out.println("-----------------------------------");
    }
     
-    
     /// Métodos Estáticos
     // Lê o arquivo para um HashMap
     public static Map<Integer, Aluno> leitorCSV() {
@@ -107,5 +106,4 @@ public class Main {
         } 
       return mapaCursos;
     }
-    
 }
