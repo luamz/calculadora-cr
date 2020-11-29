@@ -15,13 +15,46 @@ public class Main {
     
     public static void main(String[] args){
         Map<Integer, Aluno> mapaAlunos = leitorCSV();
+        
+        
+        System.out.println("------- O CR dos alunos é: --------");
         for (Map.Entry<Integer,Aluno> aluno : mapaAlunos.entrySet()) {
             Aluno a= aluno.getValue();
             a.calcularCR();
-            a.imprimirAluno();
+            a.imprimirCR();
         }
+        
+        
+        System.out.println("-----------------------------------");
+        
+        Map<Integer, Curso> mapaCursos  = gerarMapaCursos(mapaAlunos);
+        
+        System.out.println("----- Média de CR dos cursos ------");
+        for (Map.Entry<Integer,Curso> curso : mapaCursos.entrySet()) {
+            Curso c= curso.getValue();
+            c.calcularMediaCRs();
+            c.imprimirMediaCRs();
+        }
+        System.out.println("-----------------------------------");
    }
- 
+    
+    public static Map<Integer, Curso> gerarMapaCursos(Map<Integer, Aluno> mapaAlunos){
+      Map<Integer, Curso> mapaCursos = new HashMap<>();
+      for (Map.Entry<Integer,Aluno> aluno : mapaAlunos.entrySet()) {
+            Aluno a= aluno.getValue();
+            if (mapaCursos.containsKey(a.codCurso)){
+                    Curso novo = mapaCursos.get(a.codCurso);
+                    novo.alunos.add(a);
+                    mapaCursos.replace(a.codCurso, novo);
+                }                
+                else{
+                    Curso novo = new Curso(a.codCurso);
+                    novo.alunos.add(a);
+                    mapaCursos.put(a.codCurso, novo);
+                }
+        } 
+      return mapaCursos;
+    }
     
     public static Map<Integer, Aluno> leitorCSV() {
         BufferedReader br = null;
